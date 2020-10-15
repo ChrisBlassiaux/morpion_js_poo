@@ -1,0 +1,17 @@
+.container {
+  max-width: 400px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.case {
+  padding: 60px;
+
+  border: 2px solid #000;
+}
