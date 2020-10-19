@@ -9,22 +9,41 @@
   </head>
   <body>
     <div class="container">
-      <div class="board">
-        <div class="case" data-location="A1"> </div>
-        <div class="case" data-location="B1"> </div>
-        <div class="case" data-location="C1"> </div>
-        <div class="case" data-location="A2"> </div>
-        <div class="case" data-location="B2"> </div>
-        <div class="case" data-location="C2"> </div>
-        <div class="case" data-location="A3"> </div>
-        <div class="case" data-location="B3"> </div>
-        <div class="case" data-location="C3"> </div>
-      </div>
+      <h1>Morpion</h1>
+      <main>
+        <div class="board">
+          <div class="case" data-location="A1"> </div>
+          <div class="case" data-location="B1"> </div>
+          <div class="case" data-location="C1"> </div>
+          <div class="case" data-location="A2"> </div>
+          <div class="case" data-location="B2"> </div>
+          <div class="case" data-location="C2"> </div>
+          <div class="case" data-location="A3"> </div>
+          <div class="case" data-location="B3"> </div>
+          <div class="case" data-location="C3"> </div>
+        </div>
     
-      <div class="infos">
-        <div>Joueur 1 => X</div> 
-        <div>Joueur 2 => O</div> 
-      </div>
+        <div class="infos">
+          <div>
+            <div>Joueur 1 <i class="fa fa-times"></i></div> 
+            <div>Joueur 2 <i class="fa fa-circle"></i></div> 
+          </div> 
+          <div class="alert">
+            Le joueur 1 doit jouer ! :) 
+          </div> 
+          <div class="alert-busy">
+            Cette case est déjà occupé !
+          </div> 
+         
+          <div class="victories">
+            <div>Victoire(s) du joueur 1 : <span class="victories-1">0</span></div> 
+            <div>Victoire(s) du joueur 2 : <span class="victories-2">0</span></div> 
+          </div> 
+
+          <a href="#" class="btn">Restart</a>
+
+        </div>
+      </main>
     </div>
   </body>
 
