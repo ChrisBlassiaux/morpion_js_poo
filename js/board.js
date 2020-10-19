@@ -6,18 +6,6 @@ const Player = class Player {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 const Case = class Case {
 
   constructor(BoardCase) {
@@ -33,38 +21,11 @@ const Case = class Case {
 }
 
 
-
-
-
-
-
-
-
-
-// const Board = class Board {
-
-//   constructor() {
-//     this.cases = document.querySelectorAll('.case');
-//   }
-
-//   //ici : methode avec boucle sur cases => Case
-
-// }
-
-
-
-
-
-
-
-
-
-
 const Game = class Game {
   
   #arrayCase = [];
-  #player1 = new Player('X');
-  #player2 = new Player('O');
+  #player1 = new Player(`<i class="fa fa-times fa-3x"></i>`);
+  #player2 = new Player(`<i class="fa fa-circle fa-3x"></i>`);
 
   constructor() {
     this.currentTurn = 0;
@@ -88,14 +49,15 @@ const Game = class Game {
   gameTurn(theCase) {
     //vérifier le player (paire / impaire)
     //lancer les écouteurs avec le bon player (pair ou impair)
-    if (this.currentTurn % 2 === 0) {
-      theCase.innerHTML = this.#player1.symbole;
-    } else {
-      theCase.innerHTML = this.#player2.symbole;
+    if (!theCase.innerHTML[1]) {
+      if (this.currentTurn % 2 === 0) {
+        theCase.innerHTML = this.#player1.symbole;
+      } else {
+        theCase.innerHTML = this.#player2.symbole;
+      }
+      this.currentTurn++;
+      this.verifyIfEnd();
     }
-    this.currentTurn++;
-
-    this.verifyIfEnd();
   }
 
   verifyIfEnd() {
@@ -105,18 +67,20 @@ const Game = class Game {
     let caseJ2 = [];
     
     for (const nodeCase of boardCases) {
-      if (nodeCase.innerHTML === "X") {
+      if (nodeCase.innerHTML === this.#player1.symbole) {
         caseJ1.push(nodeCase.dataset.location);
-      } else if (nodeCase.innerHTML === "O") {
+      } else if (nodeCase.innerHTML === this.#player2.symbole) {
         caseJ2.push(nodeCase.dataset.location);
       }
     }
 
     // console.log(caseJ1, caseJ2);
   
-    // if (condition) {
-      // Faire une condition qui teste si les combinaisons existent => includes && && && || && && && || 
-    // }
+    if (caseJ1.includes('A1') && caseJ1.includes('B1') && caseJ1.includes('C1') || caseJ1.includes('A2') && caseJ1.includes('B2') && caseJ1.includes('C2') || caseJ1.includes('A3') && caseJ1.includes('B3') && caseJ1.includes('C3') || caseJ1.includes('A1') && caseJ1.includes('A2') && caseJ1.includes('A3') || caseJ1.includes('B1') && caseJ1.includes('B2') && caseJ1.includes('B3') || caseJ1.includes('C1') && caseJ1.includes('C2') && caseJ1.includes('C3') || caseJ1.includes('A1') && caseJ1.includes('B2') && caseJ1.includes('C3') || caseJ1.includes('A3') && caseJ1.includes('B2') && caseJ1.includes('C1')) {
+      console.log('j1');
+    } else if (caseJ2.includes('A1') && caseJ2.includes('B1') && caseJ2.includes('C1') || caseJ2.includes('A2') && caseJ2.includes('B2') && caseJ2.includes('C2') || caseJ2.includes('A3') && caseJ2.includes('B3') && caseJ2.includes('C3') || caseJ2.includes('A1') && caseJ2.includes('A2') && caseJ2.includes('A3') || caseJ2.includes('B1') && caseJ2.includes('B2') && caseJ2.includes('B3') || caseJ2.includes('C1') && caseJ2.includes('C2') && caseJ2.includes('C3') || caseJ2.includes('A1') && caseJ2.includes('B2') && caseJ2.includes('C3') || caseJ2.includes('A3') && caseJ2.includes('B2') && caseJ2.includes('C1')) {
+      console.log('j2');
+    }
     //boucler gameturn, et si end, finir !
 
     // BoardCase.addSymboleInCase(player1);
