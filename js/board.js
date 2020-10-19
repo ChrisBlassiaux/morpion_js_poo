@@ -42,13 +42,21 @@ const Game = class Game {
     });
   }
 
+  //method qui affiche à l'utilisateur qui doit jouer
   whoShouldPLay() {
-    //method qui affiche à l'utilisateur qui doit jouer 
+     let alert = document.querySelector('.alert-step');
+
+     if (this.currentTurn % 2 === 0) {
+        alert.innerHTML = 'Le joueur 1 doit jouer !';
+      } else {
+        alert.innerHTML = 'Le joueur 2 doit jouer !';
+     }
   }
 
   gameTurn(theCase) {
     //vérifier le player (paire / impaire)
     //lancer les écouteurs avec le bon player (pair ou impair)
+    let alertBusy = document.querySelector('.alert-busy');
     if (!theCase.innerHTML[1]) {
       if (this.currentTurn % 2 === 0) {
         theCase.innerHTML = this.#player1.symbole;
@@ -56,7 +64,11 @@ const Game = class Game {
         theCase.innerHTML = this.#player2.symbole;
       }
       this.currentTurn++;
+      this.whoShouldPLay();
       this.verifyIfEnd();
+      alertBusy.style.display = 'none';
+    } else {
+      alertBusy.style.display = 'block';
     }
   }
 

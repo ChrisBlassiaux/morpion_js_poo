@@ -71,13 +71,16 @@ main {
   margin-top: 40px;
 }
 
-.infos .alert,
+.infos .alert-step,
 .infos .alert-busy {
   margin: 20px 0;
 }
 
 .alert-busy {
-  color:  rgb(58, 56, 196);
+  display: none;
+
+  font-weight: bolder;
+  color:  rgb(192, 25, 61);
 }
 
 .victories-1,
