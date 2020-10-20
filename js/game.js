@@ -1,3 +1,7 @@
+
+import { Player } from 'player';
+import { Case } from 'case';
+
 const Game = class Game {
   
   #arrayCase = [];
@@ -94,7 +98,6 @@ const Game = class Game {
   }
 
   verifyIfEnd() {
-    //si 
     let boardCases = document.querySelectorAll('.case');
     let caseJ1 = [];
     let caseJ2 = [];
@@ -129,13 +132,6 @@ const Game = class Game {
     console.log(this.#counterVictoriesJ2);
     victories2.innerHTML = this.#counterVictoriesJ2;
   }
-
-  restartGame() {
-    
-  }
-
 }
 
-const game = new Game();
-
-game.startOrRestartGame();
+export { Game };

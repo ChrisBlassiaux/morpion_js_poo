@@ -9,5 +9,6 @@ const Case = class Case {
       game.gameTurn(this.case);
     });
   }
-
 }
+
+export { Case };
